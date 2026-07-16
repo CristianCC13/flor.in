@@ -1,0 +1,13 @@
+---
+export interface Props {
+  href: string;
+  label: string;
+}
+
+const { href, label } = Astro.props;
+const current = Astro.url.pathname === href;
+---
+
+<a href={href} class={`text-sm font-medium transition-colors ${current ? "text-foreground" : "text-muted-foreground hover:text-foreground"}`}>
+  {label}
+</a>

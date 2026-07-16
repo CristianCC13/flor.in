@@ -1,62 +1,24 @@
-# Node
-node_modules/
-.cache/
-.nyc_output/
-.DS_Store
-.env*
-!.env.example
-.dev.vars
-.agent-skills.lock.md
-
-# Build artifacts
+# build output
 dist/
-build/
+# generated types
 .astro/
-.cache
 
-# EmDash runtime data (SQLite database + local media uploads)
-data/
-*.db
-*.db-shm
-*.db-wal
-uploads/
-.emdash/
+# dependencies
+node_modules/
 
-# EmDash generated types
-emdash-env.d.ts
+# logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
 
-# Install logs
-install.log
 
-# Dependencies
-# pnpm-lock.yaml is intentionally committed for reproducible CI builds
+# environment variables
+.env
+.env.production
 
-# Logs and reports
-logs/
-*.log
-
-# OS
+# macOS-specific files
 .DS_Store
-Thumbs.db
 
-# VS Code
-.vscode/
-.history
-
-# Project-specific
-*.log
-*.tmp
-
-# Dev verification artifacts
-screenshots/
-
-# Agentic Kanban (local task board — not part of the template)
-.agentkanban/
-
-# Lighthouse / audit reports
-lh-*.json
-
-# Temporary files
-*.swp
-*.swo
-*~
+# jetbrains setting folder
+.idea/

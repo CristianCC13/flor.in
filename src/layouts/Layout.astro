@@ -1,0 +1,49 @@
+---
+import NavLink from "../components/NavLink.astro";
+import "../styles/global.css";
+
+export interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = "Florin — SEO Builder & Founder",
+  description = "Personal portfolio, projects, and writing by Florin. Founder of indexlab.ro.",
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <meta name="description" content={description} />
+    <title>{title}</title>
+  </head>
+  <body class="min-h-screen bg-background text-foreground antialiased">
+    <header class="border-b border-border">
+      <nav class="mx-auto flex max-w-2xl items-center justify-between px-6 py-5">
+        <a href="/" class="text-base font-semibold tracking-tight">flor.in</a>
+        <div class="flex items-center gap-6">
+          <NavLink href="/about" label="About" />
+          <NavLink href="/projects" label="Projects" />
+          <NavLink href="/blog" label="Blog" />
+          <NavLink href="/contact" label="Contact" />
+        </div>
+      </nav>
+    </header>
+
+    <main class="mx-auto max-w-2xl px-6 py-16">
+      <slot />
+    </main>
+
+    <footer class="border-t border-border">
+      <div class="mx-auto max-w-2xl px-6 py-8 text-sm text-muted-foreground">
+        <p>&copy; {new Date().getFullYear()} Florin. All rights reserved.</p>
+      </div>
+    </footer>
+  </body>
+</html>

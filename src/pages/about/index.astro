@@ -1,0 +1,62 @@
+---
+import Layout from "../../layouts/Layout.astro";
+
+const timeline = [
+  { year: "2024", title: "Founder, IndexLab", desc: "Launched indexlab.ro — SEO agency focused on technical SEO, content strategy, and AI search optimization." },
+  { year: "2021", title: "SEO Consultant", desc: "Worked with startups and SaaS companies on organic growth, content strategy, and technical audits." },
+  { year: "2019", title: "Web Developer", desc: "Built websites and web apps with modern frameworks. Discovered SEO and fell in love with the craft." },
+];
+
+const skills = [
+  "Technical SEO", "Content Strategy", "AI Search (AEO/GEO)", "Astro", "TypeScript",
+  "Schema Markup", "Google Search Console", "GA4", "Programmatic SEO",
+];
+---
+
+<Layout title="About — Florin">
+  <article class="space-y-12">
+    <header>
+      <h1 class="text-3xl font-bold tracking-tight">About</h1>
+    </header>
+
+    <section class="space-y-4 text-muted-foreground leading-relaxed">
+      <p>
+        I'm Florin — an SEO builder and founder based in Romania. I run
+        <a href="https://indexlab.ro" class="text-foreground underline underline-offset-4">indexlab.ro</a>,
+        an agency focused on technical SEO, content strategy, and AI search optimization.
+      </p>
+      <p>
+        I got into SEO after years as a web developer. I realized that building great
+        products means nothing if nobody can find them. That shift changed everything.
+      </p>
+      <p>
+        These days I split my time between client work at IndexLab, building tools
+        for the SEO community, and writing about what I learn.
+      </p>
+    </section>
+
+    <section>
+      <h2 class="text-lg font-semibold mb-4">Skills</h2>
+      <div class="flex flex-wrap gap-2">
+        {skills.map((s) => (
+          <span class="rounded-md border border-border px-3 py-1 text-sm text-muted-foreground">{s}</span>
+        ))}
+      </div>
+    </section>
+
+    <section>
+      <h2 class="text-lg font-semibold mb-6">Timeline</h2>
+      <div class="space-y-6">
+        {timeline.map((item) => (
+          <div class="grid grid-cols-[4rem_1fr] gap-4">
+            <span class="text-sm font-medium text-muted-foreground pt-1">{item.year}</span>
+            <div>
+              <h3 class="font-medium">{item.title}</h3>
+              <p class="text-sm text-muted-foreground mt-1 leading-relaxed">{item.desc}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+  </article>
+</Layout>

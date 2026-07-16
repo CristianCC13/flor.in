@@ -1,35 +1,43 @@
-## AI Development System
+# AGENTS.md — flor.in
 
-This repo is built to be operated by AI coding agents. Stay **on-system**.
+## Project
+Personal portfolio & blog for Florin (founder of indexlab.ro).
+Static Astro site deployed on Cloudflare Pages.
 
-**Read before editing UI/design:**
+## Tech Stack
+- **Astro 7** — static output
+- **Tailwind CSS 4** — styling via `@tailwindcss/vite`
+- **Cloudflare Pages** — hosting (static, free tier)
+- **TypeScript** — strict mode
 
-- `system/globals/` — canonical design knowledge (colors, typography, spacing,
-  interaction, imagery, effects, responsiveness, accessibility, components,
-  patterns). One source of truth for all design decisions; `components.md` +
-  `patterns.md` unify the component library.
-- `src/config/site.config.ts` — bring-your-own-brand input; translate it into
-  tokens, never inline.
-- `src/registry.json` — machine-readable catalog of components, sections, pages.
+## Structure
+```
+src/
+├── components/     — Reusable UI components
+├── layouts/        — Layout.astro (base HTML shell)
+├── pages/          — File-based routing
+│   ├── index.astro           — Home
+│   ├── about/index.astro     — About / CV
+│   ├── projects/index.astro  — Projects showcase
+│   ├── blog/index.astro      — Blog listing
+│   ├── contact/index.astro   — Contact info
+│   └── blog/                 — Blog posts
+├── styles/         — global.css (Tailwind + theme tokens)
+└── content/        — Future: content collections
+```
 
-**Architecture (three tiers):** Components (`src/components/ui/**`) → Sections
-(`src/components/sections/**`, barrel `src/components/sections/index.ts`) → Pages
-(`src/pages/**`). Build pages by composing sections; build sections from components.
+## Commands
+- `pnpm dev` — dev server
+- `pnpm build` — production build → `dist/`
+- `pnpm preview` — preview build locally
 
-**Hard rules:**
+## Design
+- Minimal, clean, monochrome (zinc palette)
+- Max width: `max-w-2xl` for readability
+- No hardcoded colors — use Tailwind theme tokens from `global.css`
 
-- Colors/spacing/typography come from design tokens only. No hardcoded hex/rgb and
-  no Tailwind palette utilities (`bg-blue-500`). Use semantic tokens
-  (`bg-primary`, `text-foreground`, `var(--muted-foreground)`).
-- Dark mode must keep working (class strategy). Never hand-invert colors.
-- Preserve i18n (English default; locale routing ready under `src/pages/[locale]/`),
-  server-rendered output (`@astrojs/node`, self-hosted via Docker), EmDash-sourced
-  content, SEO/OG/RSS/sitemap, Pagefind, and Starlight docs.
-- Blog posts and pages come from the EmDash CMS — don't hardcode copy that belongs in
-  a collection.
-
-**Verify before done:** `pnpm build`, `pnpm lint` (includes `pnpm check:kpis`),
-`pnpm run lint:css`. `check:kpis` is the source of truth for design conventions and
-fails CI on off-system edits.
-
-**Portable self-audit prompts:** `system/prompts/` (usable in any chat tool).
+## Deploy
+- Push to `main` → Cloudflare Pages auto-build
+- Build command: `pnpm build`
+- Output dir: `dist`
+- Custom domain: flor.in

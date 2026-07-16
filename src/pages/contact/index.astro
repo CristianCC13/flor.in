@@ -1,0 +1,39 @@
+---
+import Layout from "../../layouts/Layout.astro";
+
+const socials = [
+  { label: "Email", value: "hello@flor.in", href: "mailto:hello@flor.in" },
+  { label: "GitHub", value: "github.com/CristianCC13", href: "https://github.com/CristianCC13" },
+  { label: "IndexLab", value: "indexlab.ro", href: "https://indexlab.ro" },
+];
+---
+
+<Layout title="Contact — Florin">
+  <article class="space-y-12">
+    <header>
+      <h1 class="text-3xl font-bold tracking-tight">Contact</h1>
+    </header>
+
+    <section class="space-y-4 text-muted-foreground leading-relaxed">
+      <p>
+        The fastest way to reach me is email. I read everything and reply to most.
+      </p>
+      <p>
+        For SEO inquiries, visit
+        <a href="https://indexlab.ro" class="text-foreground underline underline-offset-4">indexlab.ro</a>.
+        For everything else, use the channels below.
+      </p>
+    </section>
+
+    <section class="space-y-3">
+      {socials.map((s) => (
+        <div class="flex items-center justify-between border-b border-border py-3">
+          <span class="text-sm text-muted-foreground">{s.label}</span>
+          <a href={s.href} class="text-sm font-medium underline underline-offset-4 hover:text-muted-foreground">
+            {s.value}
+          </a>
+        </div>
+      ))}
+    </section>
+  </article>
+</Layout>
