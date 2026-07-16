@@ -6,7 +6,7 @@ export const siteConfig: SiteConfig = {
 	url: "https://flor.in",
 	title: "Florin",
 	author: "Florin",
-	description: "SEO builder & founder. Personal portfolio, projects, and writing by Florin.",
+	description: "SEO strategist & founder of IndexLab. Writing about search, growth experiments, and building in public.",
 	lang: "en",
 	ogLocale: "en_US",
   // Determines whether to show the logo in the templates header
@@ -33,7 +33,7 @@ export const menuLinks: { path: string; title: string }[] = [
 	},
 	{
 		path: "/posts/",
-		title: "Blog",
+		title: "Articles",
 	},
 	{
 		path: "/notes/",

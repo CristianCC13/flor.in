@@ -6,6 +6,7 @@ tags:
   - release
 description: "A compact checklist for shipping a portfolio update without drama."
 draft: false
+pinned: true
 ---
 
 ## Before publishing
