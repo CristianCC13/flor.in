@@ -6,6 +6,7 @@ tags:
   - content
 description: "Practical notes for keeping Astro content collections predictable."
 draft: false
+pinned: false
 ---
 
 ## Treat content as data
