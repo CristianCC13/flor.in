@@ -2,39 +2,46 @@
 
 ## Project
 Personal portfolio & blog for Florin (founder of indexlab.ro).
-Static Astro site deployed on Cloudflare Pages.
+Static Astro site built on Astro Keel theme, deployed on Cloudflare Pages.
 
 ## Tech Stack
-- **Astro 7** — static output
-- **Tailwind CSS 4** — styling via `@tailwindcss/vite`
-- **Cloudflare Pages** — hosting (static, free tier)
+- **Astro 7** — static output, zero JS
+- **Astro Keel** — minimal editorial portfolio/blog theme
+- **MDX** — content with code highlighting (Shiki dual-theme)
+- **Sitemap + RSS** — auto-generated
+- **Pagefind** — static search
 - **TypeScript** — strict mode
+- **Cloudflare Pages** — hosting (static, free tier)
 
 ## Structure
 ```
 src/
 ├── components/     — Reusable UI components
-├── layouts/        — Layout.astro (base HTML shell)
+├── layouts/        — BaseLayout.astro (base HTML shell)
 ├── pages/          — File-based routing
 │   ├── index.astro           — Home
-│   ├── about/index.astro     — About / CV
-│   ├── projects/index.astro  — Projects showcase
-│   ├── blog/index.astro      — Blog listing
-│   ├── contact/index.astro   — Contact info
-│   └── blog/                 — Blog posts
-├── styles/         — global.css (Tailwind + theme tokens)
-└── content/        — Future: content collections
+│   ├── about/index.astro     — About
+│   ├── works/                — Projects/case studies
+│   ├── blog/                 — Blog listing + posts
+│   ├── search.astro          — Pagefind search
+│   └── rss.xml.ts            — RSS feed
+├── content/        — Content collections (works + blog)
+├── styles/         — global.css (theme tokens, fonts)
+├── consts.ts       — Site settings (title, nav, etc.)
+└── lib/            — Utilities
 ```
 
 ## Commands
 - `pnpm dev` — dev server
-- `pnpm build` — production build → `dist/`
+- `pnpm build` — production build → `dist/` (+ pagefind index)
 - `pnpm preview` — preview build locally
+- `pnpm check` — type check
 
-## Design
-- Minimal, clean, monochrome (zinc palette)
-- Max width: `max-w-2xl` for readability
-- No hardcoded colors — use Tailwind theme tokens from `global.css`
+## Customize
+- Edit `src/consts.ts` for site title, description, nav items
+- Edit `src/styles/global.css` — `--color-accent` is the single accent variable
+- Add blog posts as `.mdx` or `.md` in `src/content/blog/`
+- Add projects as `.mdx` or `.md` in `src/content/works/`
 
 ## Deploy
 - Push to `main` → Cloudflare Pages auto-build
